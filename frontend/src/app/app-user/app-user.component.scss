@@ -1,0 +1,8 @@
+@import '../../utils/utils.scss';
+.app-user {
+    overflow-y: scroll;
+    height: calc(100vh - $header-height);
+    position: relative;
+    top: $header-height;
+    width: 100vw;
+}

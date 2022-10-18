@@ -1,0 +1,124 @@
+{
+    "common": {
+        "by": "Por",
+        "at": "el",
+        "name": "Nombre",
+        "eMail": "E-Mail",
+        "title": "Título",
+        "search": "Búsqueda",
+        "cancel": "Cancelar",
+        "save": "Guardar",
+        "send": "Enviar",
+        "requiredField": "Campo obligatorio",
+        "requiredEmail": "E-Mail obligatorio",
+        "reset": "Valores restaurados",
+        "password": "Contraseña",
+        "loading": "Cargando",
+        "loggedIn": "Registrado",
+        "notLoggedIn": "No registrado",
+        "delete": "Borrar",
+        "accept": "Aceptar",
+        "reject": "Rechazar"
+    },
+    "header": {
+        "blog": "Blog",
+        "suggestions": "Sugerencias",
+        "edit": "Editar",
+        "login": "Acceder",
+        "about": "Acerca de"
+    },
+    "blogList": {
+        "available": "Entradas disponibles",
+        "articleDeleted": "Artículo borrado"
+    },
+    "suggestions": {
+        "header": "Aquí puede enviar sugerencias al editor",
+        "explanation": "Siéntase libre de mostar su opinión",
+        "sent": "Sugerencias enviadas"
+    },
+    "petitions": {
+        "title": "Peiticiones de cuenta"
+    },
+    "account": {
+        "loginHeader": "Entre para editar y crear nuevas entradas del blog",
+        "restorePassword": "Restaurar contraseña",
+        "createAccount": "Crear cuenta",
+        "restore": "Restaurar",
+        "create": "Crear",
+        "login": "Entrar",
+        "logout": "Salir del sistema",
+        "loggedOut": "Ha salido del sistema",
+        "oldPassword": "Contraseña previa",
+        "newPassword": "Contraseña nueva",
+        "created": "Cuenta creada",
+        "restored": "Contraseña restaurada",
+        "accountPetitions": "Peticiones de cuenta",
+        "loggedIn": "Ha accedido a su cuenta",
+        "notLoggedIn": "No ha accedido a su cuenta"
+    },
+    "editor": {
+        "header": "Editor de texto",
+        "createExplanation": "Crear una nueva entra del blog",
+        "editExplanation": "Editar una entrada existente del blog",
+        "saved": "Blog guardado",
+        "selectImage": "Seleccione una imagen",
+        "substituteImage": "Substituir la imagen",
+        "createBlog": "Crear entrada del blog",
+        "suggestions": "Ir a las sugerencias"
+    },
+    "sideMenu": {
+        "lastArticle": "Artículo más nuevo",
+        "randomArticle": "Artículo aleatorio",
+        "searchEntry": "Búsqueda"
+    },
+    "about": {
+        "pictureDescription": "Autor del blog y de la web",
+        "descriptionOwn": "Soy Fernando, un ingeniero y desarrollador de software y actualmente trabajo de desarrollador front-end. Soy español y vivo en Alemania.",
+        "descriptionEducation": "He estudiado ingeniería de telecomunicaciones en España, porque quería lograr una comprensión profunda de la tecnología y, mediante este, resolver problemas técnicos y aplicar soluciones prácticas. Me gusta la sensación de entender mejor como funciona un mecanismo complejo y así poder mejorarlo con mis propias ideas. Ésta pasión también me ha llevado a estudiar un máster en informática en Alemania, para profundizar mi conocimiento sobre ordenadores.",
+        "descriptionWorking": "He trabajado como programador a tiempo completo cuatro años y medio, más un año y medio a tiempo parcial durante el master. La mayoría del tiempo he estado centrado en Angular, con visitas cortas a C# y SQL, mientras que mi primera experiencia fue en C.",
+        "descriptionWebsite1": "Ésta página web es el resultado de dos retos propios que tenía desde hace tiempo. El primero de ellos es ser capaz de desarollar una página web desde 0 yo solo. Mientras que el segundo es el de escribir un blog sobre programación, ya que ésta no solo es mi profesión, también es mi pasión.",
+        "descriptionWebsite2": "En este blog describo los descubrimientos que voy haciendo al trabajar y aprender sobre programación, actualmente centrado en Angular y front-end. Cada artículo es un pensamiento, que espero que pueda ayudar a alguien a entender mejor el mundo del código.",
+        "contact": "Pueden contactarme via: ",
+        "educationTitle": "Educación",
+        "workTitle": "Experiencia laboral",
+        "websiteTitle": "Ésta página web"
+    },
+    "response": {
+        "article": {
+            "error": {
+                "noArticleId": "No se ha encontrado el artículo requrido",
+                "notAuthor": "El usuario autenticado no es el autor del Artículo"
+            },
+            "success": {
+                "saved": "Artículo guardado",
+                "articleDeleted": "Artículo borrado"
+            }
+        },
+        "login": {
+            "error": {
+
+            },
+            "account": {
+                "created": "Cuenta creada",
+                "petitioned": "Su petición ha de ser aprovada por un usuario actual"
+            }
+        },
+        "suggestions": {
+            "saved": "Sugerencia guardada"
+        },
+        "petition": {
+            "error": {
+                "noId": "Ninguna petición tiene esta Id"
+            },
+            "success": {
+                "deleted": "Petición eliminada"
+            }
+        },
+        "common": {
+            "required": "Los valores siguientes son obligatorios"
+        },
+        "error": {
+            "unknown": "Error desconocido"
+        }
+    }
+}

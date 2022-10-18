@@ -1,0 +1,124 @@
+{
+    "common": {
+        "by": "by",
+        "at": "at",
+        "name": "Name",
+        "eMail": "E-Mail",
+        "title": "Title",
+        "search": "Search entry",
+        "cancel": "cancel",
+        "save": "save",
+        "send": "send",
+        "requiredField": "Field required",
+        "requiredEmail": "E-Mail required",
+        "reset": "Values reset",
+        "password": "Password",
+        "loading": "Loading",
+        "loggedIn": "Logged in",
+        "notLoggedIn": "Not logged in",
+        "delete": "Delete",
+        "accept": "Accept",
+        "reject": "Reject"
+    },
+    "header": {
+        "blog": "Blog",
+        "suggestions": "Suggestions",
+        "edit": "Edit",
+        "login": "Login",
+        "about": "About"
+    },
+    "blogList": {
+        "available": "Available entries",
+        "articleDeleted": "Article deleted"
+    },
+    "suggestions": {
+        "header": "Here you can send suggestions to the editor",
+        "explanation": "Please, feel free to show your opinion",
+        "sent": "Suggestion sent",
+        "deleted": "Suggestion deleted"
+    },
+    "petitions": {
+        "title": "Account petitions"
+    },
+    "account": {
+        "loginHeader": "Login to edit and create new entries",
+        "restorePassword": "Restore password",
+        "createAccount": "Create account",
+        "restore": "Restore",
+        "create": "Create",
+        "login": "Login",
+        "logout": "Log out",
+        "loggedOut": "Logged out",
+        "oldPassword": "Old password",
+        "newPassword": "New password",
+        "created": "Account created",
+        "restored": "Password restored",
+        "accountPetitions": "Account petitions",
+        "loggedIn": "Logged in",
+        "notLoggedIn": "Not logged in"
+    },
+    "editor": {
+        "header": "Text editor",
+        "createExplanation": "Create a new blog entry",
+        "editExplanation": "Edit an existing blog entry",
+        "saved": "Blog saved",
+        "selectImage": "Select picture",
+        "substituteImage": "Substitute image",
+        "createBlog": "Create new blog entry",
+        "suggestions": "Go to suggestions list"
+    },
+    "sideMenu": {
+        "lastArticle": "Latest article",
+        "randomArticle": "Random article",
+        "searchEntry": "Search"
+    },
+    "about": {
+        "pictureDescription": "Blog's and website author",
+        "descriptionOwn": "I am Fernando, an engineer and software developer, currently working as front-end developer. I am a spaniard based in Germany.",
+        "descriptionEducation": "I studied telecommunication engineer in Spain, since I liked to achieve a deep understanding of technology and apply this knowledge to solve technical problems and develop practical solutions to them. I like the feeling of better understanding the way something complex works and, with this knowledge, be able to improve it with my own ideas. This passion also brought me to study computer science master in Germany, in order to deepen my knowledge about software development.",
+        "descriptionWorking": "I have been working as a programmer full-time for four years and a half, plus one year an a half partial time during my masters studies. Most of the time I was focused on Angular, with some glances at C# and SQL, while my first year and a half experience was focused on C.",
+        "descriptionWebsite1": "This website is the result of two challenges I had since long time. The first one is to develop a website from scratch by myself. The second one is to write a blog about programming, which is not only my profession, but also my passion.",
+        "descriptionWebsite2": "Here I describe the things I discover working and learning about Angular front-end development. Each article is a thought that could help someone to better understand the coding world.",
+        "contact": "Please, feel free to contact me via: ",
+        "educationTitle": "Education",
+        "workTitle": "Work experience",
+        "websiteTitle": "This website"
+    },
+    "response": {
+        "article": {
+            "error": {
+                "noArticleId": "The required article could not be found",
+                "notAuthor": "The athenticated user is not the author of the article"
+            },
+            "success": {
+                "saved": "Article saved"
+            }
+        },
+        "login": {
+            "error": {
+
+            },
+            "account": {
+                "created": "Account created",
+                "petitioned": "Your account creation should be approved by an existing user"
+            }
+        },
+        "suggestions": {
+            "saved": "Suggestion saved"
+        },
+        "petition": {
+            "error": {
+                "noId": "No petition with this Id"
+            },
+            "success": {
+                "deleted": "Petition deleted"
+            }
+        },
+        "common": {
+            "required": "The following values are required"
+        },
+        "error": {
+            "unknown": "Unknown error"
+        }
+    }
+}

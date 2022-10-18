@@ -1,0 +1,59 @@
+$header-height: 65px;
+
+.text-center {
+    text-align: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.m-sm {
+    margin: 1rem;
+}
+
+.buttons{
+    margin: 3rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    button{
+        width: 10rem;
+    }
+}
+
+.author {
+    font-size: smaller;
+    font-style: oblique;
+}
+
+.ellipse {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.date {
+    font-size: smaller;
+}
+
+.error-whole-window {
+    font-size: 100;
+    color: red;
+    font-weight: bolder;
+    font-family: Courier;
+}
+
+.clickable-text {
+    cursor: pointer;
+}
+
+.delete-button {
+    color: blue;
+    font-size: xx-small;
+    text-align: right;
+}

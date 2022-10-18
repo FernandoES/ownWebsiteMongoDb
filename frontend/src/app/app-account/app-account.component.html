@@ -1,0 +1,22 @@
+<ng-container *ngIf="!service.logged; else logout">
+    <div [fxLayout]="'row'" fxLayoutGap="10px">
+        <a class="clickable-text" (click)="goToRestorePasswordMenu()">{{ "account.restorePassword" | ownLanguage }}</a>
+        <a class="clickable-text" (click)="goTocreateAccountMenu()">{{ "account.createAccount" | ownLanguage }}</a>
+        <a class="clickable-text" (click)="goToLoginMenu()">{{ "account.login" | ownLanguage }}</a>
+    </div>
+    <ng-container [ngSwitch]="selectedLoginOption">
+        <app-login (onLogin)="update()" *ngSwitchCase="LoginOption.LOGIN">{{ "account.login" | ownLanguage }}</app-login>
+        <app-restore-password *ngSwitchCase="LoginOption.RESTORE">{{ "account.restore" | ownLanguage }}</app-restore-password>
+        <app-create-account *ngSwitchCase="LoginOption.CREATE">{{ "account.create" | ownLanguage }}</app-create-account>
+    </ng-container>
+</ng-container>
+<ng-template #logout>
+    <div [fxLayout]="'row'" fxLayoutGap="20px">
+        <a class="clickable-text" (click)="goToLogout()">{{ "account.logout" | ownLanguage }}</a>
+        <a class="clickable-text" (click)="goToAccountpetitions()">{{ "account.accountPetitions" | ownLanguage }}</a>
+    </div>
+    <ng-container [ngSwitch]="selectedLogoutOption">
+        <app-logout *ngSwitchCase="LogoutOption.LOGOUT"></app-logout>
+        <app-account-petitions *ngSwitchCase="LogoutOption.PETITIONS"></app-account-petitions>
+    </ng-container>
+</ng-template>

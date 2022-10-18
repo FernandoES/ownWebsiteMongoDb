@@ -1,0 +1,5 @@
+<app-cards-presentation [streamToBeListed$]="suggestionsList$" header="blogList.available" (buttonClick)="goToSuggestion($event)">
+    <ng-template #cardContent="" let-item="">
+        <markdown [data]="item.body" select="cardContent"></markdown>
+    </ng-template>
+</app-cards-presentation>

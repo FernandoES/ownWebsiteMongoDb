@@ -1,0 +1,22 @@
+.app-suggestion form {
+ div[name="inputFields"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    * {
+        width: 40rem;
+    }
+    input {
+        height: min-content;
+    }
+    textarea {
+        height: 10rem;
+    }
+    .sendSuggestionButtons {
+        width: 35rem;
+        button {
+            transition: box-shadow .3s;
+        }
+    }
+}
+}

@@ -1,0 +1,11 @@
+<div [fxLayout]="'row'" fxLayoutGap="20px">
+    <a class="clickable-text" (click)="goToCreateBlog()">{{ "editor.createBlog" | ownLanguage }}</a>
+    <a class="clickable-text" (click)="goToSuggestions()">{{ "editor.suggestions" | ownLanguage }}</a>
+</div>
+<ng-container [ngSwitch]="selectedEditOption">
+    <app-create-blog *ngSwitchCase="EditOption.CREATE"></app-create-blog>
+    <div *ngSwitchCase="EditOption.SUGGESTIONS">
+        <app-suggestions-list *ngIf="(suggestionService.selectedSuggestion | async) === null"></app-suggestions-list>
+        <app-single-suggestion></app-single-suggestion>
+    </div>
+</ng-container>

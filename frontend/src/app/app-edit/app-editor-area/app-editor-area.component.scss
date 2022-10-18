@@ -1,0 +1,6 @@
+@import '../../../utils/utils.scss';
+.app-editor-area {
+    height: calc(100vh - $header-height);
+    position: relative;
+    top: $header-height;
+}

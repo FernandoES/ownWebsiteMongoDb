@@ -1,0 +1,21 @@
+.app-suggestions-list {
+    .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        button {
+            background:none; 
+            border:none;
+            padding: 16px;
+            :hover{
+                opacity: 0.5;
+            }
+            mat-card {
+                height: 25vh;
+                h5 {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

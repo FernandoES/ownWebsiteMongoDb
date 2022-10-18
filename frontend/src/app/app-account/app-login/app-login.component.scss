@@ -1,0 +1,24 @@
+.app-login {
+    width: 50%;
+    margin: auto;
+    display: block;
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+        margin-bottom: 0%;
+    }
+    .mat-card {
+        margin-top: 5%;
+        margin-bottom: 0%;
+        label {
+            margin: 1rem;
+            text-align:end;
+        }
+    }
+    div[name="buttons"] {
+        margin-right: 20%;
+        margin-left: 20%;
+    }
+}

@@ -1,0 +1,6 @@
+<single-entry 
+    [showDeleteButton]="accountService.logged"
+    (deleteClick)="deleteSuggestion($event)"
+    [entry$]="singleSuggestion$"
+    [error$]="error$">
+</single-entry>

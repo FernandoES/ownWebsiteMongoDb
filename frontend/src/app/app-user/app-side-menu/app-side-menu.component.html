@@ -1,0 +1,20 @@
+<button mat-icon-button class="waves-effect waves-light btn blue darken-1" [matMenuTriggerFor]="userMenu" >
+    <mat-icon class="Medium material-icons">dehaze</mat-icon>
+</button>
+<mat-menu class="mat-menu" #userMenu="matMenu" yPosition="below">
+        <div class="m-sm" mat-menu-item (click)="goToLatestArticle($event)">{{ "sideMenu.lastArticle" | ownLanguage }}</div>
+        <div class="m-sm" mat-menu-item (click)="goToRandomArticle($event)">{{ "sideMenu.randomArticle" | ownLanguage }}</div>
+        <div class="m-sm">
+                <input 
+                #articleSearchInput="" 
+                [matAutocomplete]="articleSearchAutocomplete" 
+                matInput="matInput" 
+                (input)="onArticleSearchChange(articleSearchInput.value)" 
+                (keydown.enter)="$event.preventDefault(); articleSearchInput.value=''" 
+                placeholder="{{ 'sideMenu.searchEntry' | ownLanguage }}" 
+                (click) = "$event.stopPropagation()"/>
+                <mat-autocomplete #articleSearchAutocomplete (optionSelected)="onArticleSelected($event)" >
+                        <mat-option *ngFor="let article of searchMatches" (click)="articleSearchInput.value=''" [value]="article">{{ article.title }}</mat-option>
+                </mat-autocomplete>
+        </div>
+</mat-menu>

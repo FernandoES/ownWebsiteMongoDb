@@ -1,0 +1,33 @@
+.app-header {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    z-index: 2;
+    img {
+        max-height: 100%;
+        width: auto;
+        padding-top:0.2rem;
+    }
+    nav {
+        .brand-logo {
+            position: relative;
+        }
+        ul {
+            position: relative;
+            left: 5%;
+            li a{
+                font-size: large;
+            }
+        }
+        .loggedIn{
+            line-height: 2rem;
+            color: green;
+            text-align: center;
+        }
+        .notLoggedIn {
+            line-height: 2rem;
+            color: inherit;
+            text-align: center;
+        }
+    }
+}

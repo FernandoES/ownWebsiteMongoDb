@@ -1,0 +1,19 @@
+.single-entry {
+    h1 {
+        margin: auto;
+    }
+    div[name="author"], div[name="editButtons"] {
+        display: flex;
+        justify-content: flex-end;
+        margin: 2rem;
+    }
+    img {
+        margin: auto;
+    }
+    markdown {
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-bottom: 5%;
+        text-align: justify;
+    }
+}

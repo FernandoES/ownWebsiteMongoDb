@@ -1,0 +1,45 @@
+.app-create-blog {
+    >div {
+        width: 80rem;
+        margin-left: auto;
+        margin-right: auto;
+        form {
+            width: 80rem;
+            >* {
+                width: 80rem;
+            }
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            textarea {
+                min-height: 20rem;
+            }
+        }
+        .mat-form-field {
+            width: 60rem;
+            margin-left: 10rem;
+            margin-right: 10rem;
+            .mat-form-field-infix {
+                width: 60rem;
+            }
+        }
+        .imageButton {
+            width: fit-content;
+            margin-top: 5rem;
+            margin-bottom: 1rem;
+            margin-left: 10rem;
+        }
+        input, textarea {
+            width: 80rem;
+        }
+    }
+    .imageContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        img {
+            align-self: center;
+        }
+    }
+}

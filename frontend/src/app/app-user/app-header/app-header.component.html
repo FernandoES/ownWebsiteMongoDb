@@ -1,0 +1,16 @@
+<nav>
+    <div class="nav-wrapper blue">
+        <a href=""><img src="assets/logoTransparent.png" alt="logo" class="left brand-logo" [fxLayout]="'row'" fxLayoutGap="10%"></a>
+        <ul class="center">
+            <li *ngFor="let option of options">
+                <a *ngIf="option.show()" [routerLink]="option.url">{{ option.slug | ownLanguage }}</a>
+            </li>
+        </ul>
+        <div class="right" fxLayout="column">
+            <div fxLayout="row" fxLayoutGap="10px">
+                <button *ngFor="let language of language.availableLanguages" type="button" class="btn waves-effect waves-light blue" (click)="changeLanguage(language)">{{ language }}</button>
+            </div>
+            <a [class]="accountService.logged ? 'loggedIn' : 'notLoggedIn'" [routerLink]="'login'">{{ (accountService.logged ? 'common.loggedIn' : 'common.notLoggedIn') | ownLanguage }}</a>
+        </div>
+    </div>
+</nav>

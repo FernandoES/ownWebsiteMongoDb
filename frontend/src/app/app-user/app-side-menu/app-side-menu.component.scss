@@ -1,0 +1,14 @@
+.app-side-menu {
+  position: fixed;
+  right: 0px;
+  top: 50%;
+  > button {
+    height: 50px;
+    width: 50px;
+    em {
+        position: relative;
+        top: 15%;
+        right: 25%;
+    }
+  }
+}

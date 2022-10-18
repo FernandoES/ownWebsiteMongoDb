@@ -1,0 +1,21 @@
+<form #createForm="ngForm" (ngSubmit)="createAccount()">
+    <h4>Create Account</h4>
+    <mat-card>
+        <div [fxLayout]="'row'">
+            <label for="email" [fxFlex]="'0 0 25%'">{{ "common.eMail" | ownLanguage }}:</label>
+            <input  [fxFlex]="'0 0 50%'" type="email" id="email" #emailControl="ngModel" email placeholder="{{ 'common.eMail' | ownLanguage }}" required name="email" [(ngModel)]="userMail"/>
+        </div>
+        <div [fxLayout]="'row'">
+            <label for="name" [fxFlex]="'0 0 25%'">{{ "common.name" | ownLanguage }}:</label>
+            <input  [fxFlex]="'0 0 50%'" type="text" id="name" #emailControl="ngModel" name placeholder="{{ 'common.name' | ownLanguage }}" required name="name" [(ngModel)]="userName"/>
+        </div>
+        <div [fxLayout]="'row'">
+            <label for="password" [fxFlex]="'0 0 25%'">{{ "common.password" | ownLanguage }}:</label>
+            <input  [fxFlex]="'0 0 50%'" type="password" id="password" #passwordControl="ngModel" placeholder="{{ 'common.password' | ownLanguage }}" required name="password" [(ngModel)]="password"/>
+        </div>
+        <div class="buttons" *ngIf="!createForm.pristine">
+          <button class="btn waves-effect waves-light blue" (click)="resetForm()" type="button">{{ "common.cancel" | ownLanguage }}</button>
+          <button class="btn waves-effect waves-light blue">{{ "common.send" | ownLanguage }}</button>
+        </div>
+    </mat-card>
+</form>

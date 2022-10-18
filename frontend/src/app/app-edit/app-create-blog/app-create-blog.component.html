@@ -1,0 +1,23 @@
+<div>
+  <h1>{{ "editor.header" | ownLanguage }}</h1>
+  <h2>{{ (entryId ? "editor.editExplanation" : "editor.createExplanation") | ownLanguage }}</h2>
+  <div class="imageContainer" [fxLayout]="'column'">
+    <img *ngIf="imagePreview" class="image" alt="img" [src]="imagePreview" width="333">
+    <button class="btn waves-effect waves-light imageButton blue" type="button" (click)="imageInput.click()">{{ (entryId ? "editor.substituteImage" : "editor.selectImage") | ownLanguage }}</button>
+    <input hidden #imageInput type="file" (change)="setFile($event)">
+  </div>
+  <form #createBlogForm="ngForm" (ngSubmit)="saveBlog()">
+    <div [fxLayout]="'row'">
+          <mat-form-field [fxLayout]="'row'" appearance="fill">
+              <input #titleInput="ngModel" matInput="matInput" [(ngModel)]="blog.title" name="titleInput" placeholder="{{ 'common.title' | ownLanguage }}" required/>
+              <mat-error><span [hidden]="!(titleInput.errors && titleInput.errors['required'])">{{ "common.requiredField" | ownLanguage }}</span></mat-error>
+            </mat-form-field>
+      </div>
+      <textarea name="textBody" [(ngModel)]="blog.body" #textBodyInput="ngModel"></textarea>
+      <mat-error><span [hidden]="!(textBodyInput.errors && textBodyInput.errors['required'])">{{ "common.requiredField" | ownLanguage }}</span></mat-error>
+      <div class="buttons" *ngIf="!createBlogForm.pristine">
+        <button class="btn waves-effect waves-light blue" (click)="resetForm()" type="button">{{ "common.cancel" | ownLanguage }}</button>
+      <button class="btn waves-effect waves-light blue">{{ "common.save" | ownLanguage }}</button>
+    </div>
+  </form>
+</div>
