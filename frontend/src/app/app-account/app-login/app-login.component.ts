@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NotificationService } from 'src/utils/notification.service';
 import { AppAccountService } from '../app-account.service';
@@ -15,7 +15,6 @@ import { AppAccountService } from '../app-account.service';
 })
 export class AppLoginComponent {
   @ViewChild('loginForm', { static: true }) loginForm: NgForm;
-  @Output() onLogin = new EventEmitter<boolean>();
   userMail: string;
   password: string;
   constructor(private _service: AppAccountService, private _notification: NotificationService) {
@@ -26,11 +25,8 @@ export class AppLoginComponent {
     if (this.loginForm.invalid) {
       return;
     }
-    return this._service.sendLogin(this.userMail, this.password).then(
-      _ => {
-        this._notification.success('account.loggedIn'); 
-        this.onLogin.emit(true);
-      })
+    return this._service.sendLogin(this.userMail, this.password)
+      .then(_ => this._notification.success('account.loggedIn'))
       .catch(_ => this._notification.error('account.notLoggedIn'));
    }
 

@@ -51,7 +51,7 @@ export class AppAccountService {
             this.password = password;
             this.user = new Realm.User(credentialsResponse);
             this.loggedIn$.next(true);
-            return this.user.functions.isLogged();
+            return credentialsResponse;
         });
     }
     

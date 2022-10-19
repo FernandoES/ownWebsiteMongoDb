@@ -49,8 +49,4 @@ export class AppAccountComponent {
     goToAccountpetitions() {
       this.selectedLogoutOption = LogoutOption.PETITIONS;
     }
-
-    update() {
-      this._ref.markForCheck()
-    }
 }

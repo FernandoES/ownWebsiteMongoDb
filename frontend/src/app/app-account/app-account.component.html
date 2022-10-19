@@ -5,7 +5,7 @@
         <a class="clickable-text" (click)="goToLoginMenu()">{{ "account.login" | ownLanguage }}</a>
     </div>
     <ng-container [ngSwitch]="selectedLoginOption">
-        <app-login (onLogin)="update()" *ngSwitchCase="LoginOption.LOGIN">{{ "account.login" | ownLanguage }}</app-login>
+        <app-login *ngSwitchCase="LoginOption.LOGIN">{{ "account.login" | ownLanguage }}</app-login>
         <app-restore-password *ngSwitchCase="LoginOption.RESTORE">{{ "account.restore" | ownLanguage }}</app-restore-password>
         <app-create-account *ngSwitchCase="LoginOption.CREATE">{{ "account.create" | ownLanguage }}</app-create-account>
     </ng-container>
