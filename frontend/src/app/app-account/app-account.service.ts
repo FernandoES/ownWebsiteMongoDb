@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { from, Observable, Subject, switchMap, tap } from 'rxjs';
+import { Subject } from 'rxjs';
 import { apiPathStart, appId } from 'src/utils/constants';
 import * as Realm from "realm-web";
 
@@ -18,7 +18,7 @@ export interface Petition {
 @Injectable()
 export class AppAccountService {
     get logged() {
-        return !!this.user?.customData.length;
+        return !!this.user?.customData.userName?.length;
     }
     get userName() {
         return this.user?.customData.userName ?? "";
@@ -39,11 +39,10 @@ export class AppAccountService {
     user: Realm.User | any;
     constructor(
         private _http : HttpClient
-        ) {
+    ) {
         this.app = new Realm.App({id: appId});
-        
-
     }
+
     sendLogin(userMail: string, password: string){
         const credentials = Realm.Credentials.emailPassword(userMail, password);
         return this.app.logIn(credentials)
@@ -55,7 +54,6 @@ export class AppAccountService {
         });
     }
     
-
    loginAnonymously() {
     const anonimousCredentials = Realm.Credentials.anonymous();
       return this.app.logIn(anonimousCredentials)
@@ -67,31 +65,14 @@ export class AppAccountService {
         {userMail: userMail, oldPassword: oldPassword, newPassword: newPassword});
     }
     
-    createAccount(userMail: string, userName: string, password: string): Observable<string>{
-        return from(this.app.emailPasswordAuth.registerUser(userMail, password)
-        .then(_ => {
-            const credentials = Realm.Credentials.emailPassword(userMail, password);
-            return this.app.logIn(credentials);
-        }
-        ))
-        .pipe(switchMap(userData => {
-            return this._http.post<any>(`${this.apiBaseUrl}/addData`, {id: (userData.id ), userName, userMail });
-    }
-        ));
+    createAccount(userMail: string, userName: string, password: string): Promise<any>{
+        return this.app.emailPasswordAuth.registerUser(userMail, password)
+        .then(_ => this.sendLogin(userMail, password))
+        .then(_ => this.user.functions.addData(this.user.id, userName, userMail))
     }
 
-    checkIfLogged() {
-        return this._http.get<any>(`${this.apiBaseUrl}/isLogged`).pipe(tap(response => {
-            if (!!response.data.length) {
-                this.loggedIn$.next(true);
-            }
-        }));
-    }
-
-    logout() {
-        return this._http.delete<{status: string}>(`${this.apiBaseUrl}/logout`).pipe(tap(() => {
-            this.loggedIn$.next(false);
-        }));
+    logout(): Promise<void> {
+        return this.user.logOut().then((_: any) => this.loggedIn$.next(false));
     }
 
     fetchAccountPetitions() {

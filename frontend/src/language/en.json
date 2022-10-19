@@ -94,15 +94,6 @@
                 "saved": "Article saved"
             }
         },
-        "login": {
-            "error": {
-
-            },
-            "account": {
-                "created": "Account created",
-                "petitioned": "Your account creation should be approved by an existing user"
-            }
-        },
         "suggestions": {
             "saved": "Suggestion saved"
         },

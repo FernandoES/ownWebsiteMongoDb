@@ -26,10 +26,10 @@ export class AppCreateAccountComponent {
     if(this.createForm.invalid) {
       return;
     }
-    this._service.createAccount(this.userMail, this.userName, this.password).subscribe({next: response => {
-      //this._notification.success(response);
+    this._service.createAccount(this.userMail, this.userName, this.password).then(_ => {
+      this._notification.success("account.created");
       this.resetForm(true);
-    }});
+    });
   }
 
   resetForm(avoidInform: boolean = false){

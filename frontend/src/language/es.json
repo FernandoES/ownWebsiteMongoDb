@@ -94,15 +94,6 @@
                 "articleDeleted": "Artículo borrado"
             }
         },
-        "login": {
-            "error": {
-
-            },
-            "account": {
-                "created": "Cuenta creada",
-                "petitioned": "Su petición ha de ser aprovada por un usuario actual"
-            }
-        },
         "suggestions": {
             "saved": "Sugerencia guardada"
         },

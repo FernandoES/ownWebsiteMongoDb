@@ -16,8 +16,8 @@ import { AppAccountService } from '../app-account.service';
 export class AppLogoutComponent {
     constructor(private service: AppAccountService, private notification: NotificationService) {}
     logout() {
-        this.service.logout().subscribe(response => {
-            this.notification.success(response.status)
+        this.service.logout().then(_ => {
+            this.notification.success("account.loggedOut")
         });
     }
 }
