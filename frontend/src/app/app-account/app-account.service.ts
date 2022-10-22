@@ -18,19 +18,25 @@ export interface Petition {
 @Injectable()
 export class AppAccountService {
     get logged() {
-        return !!this.user?.customData.userName?.length;
+        return !!this.userName.length;
+    }
+    get loggedWithoutName() {
+        return this.user?.providerType === "local-userpass" && this.userName === "";
     }
     get userName() {
         return this.user?.customData.userName ?? "";
     }
     get userMail() {
-        return this.user?.customData?.userMail ?? "";
+        return this.app?.currentUser?.profile.email ?? "";
     }
     get accessToken() {
         return this.user?.accessToken ?? '';
     }
     get refreshToken() {
         return this.user?.refreshToken ?? '';
+    }
+    get id() {
+        return this.user?.id ?? '';
     }
     loggedIn$ = new Subject<boolean>();
     password: string;
@@ -60,19 +66,28 @@ export class AppAccountService {
       .then(credentialsResponse => this.user = credentialsResponse);
    }
 
-    restorePassword(userMail: string, oldPassword: string, newPassword: string) {
-        return this._http.post(`${this.apiBaseUrl}/restorePassword`,
-        {userMail: userMail, oldPassword: oldPassword, newPassword: newPassword});
+    restorePassword(userMail: string, oldPassword: string, newPassword: string): Promise<void> {
+        return this.sendLogin(userMail, oldPassword)
+        .then(_ => this.app.emailPasswordAuth.callResetPasswordFunction(userMail, newPassword));
     }
     
     createAccount(userMail: string, userName: string, password: string): Promise<any>{
         return this.app.emailPasswordAuth.registerUser(userMail, password)
         .then(_ => this.sendLogin(userMail, password))
-        .then(_ => this.user.functions.addData(this.user.id, userName, userMail))
+        .then(_ => this.addData(userName));
+    }
+
+    addData(userName: string) {
+        return this.user.functions.addData(this.id, userName, this.userMail);
     }
 
     logout(): Promise<void> {
-        return this.user.logOut().then((_: any) => this.loggedIn$.next(false));
+        return this.user.logOut()
+        .then(() => this.loginAnonymously())
+        .then(() => {
+            this.password = "";
+            this.loggedIn$.next(false);
+        });
     }
 
     fetchAccountPetitions() {

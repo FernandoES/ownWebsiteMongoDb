@@ -26,10 +26,10 @@ export class AppRestorePasswordComponent {
     if(this.restoreForm.invalid) {
       return;
     }
-    this._service.restorePassword(this.userMail, this.oldPassword, this.newPassword).subscribe({next:_ => {
+    this._service.restorePassword(this.userMail, this.oldPassword, this.newPassword).then(_ => {
       this._notification.success("account.restored");
       this.resetForm(true);
-    }});
+    }).catch(e => console.log("Error: ", e));
   }
 
   resetForm(avoidInform: boolean = false){

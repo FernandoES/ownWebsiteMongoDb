@@ -37,8 +37,8 @@
         "sent": "Suggestion sent",
         "deleted": "Suggestion deleted"
     },
-    "petitions": {
-        "title": "Account petitions"
+    "addName": {
+        "title": "Add/Edit Name"
     },
     "account": {
         "loginHeader": "Login to edit and create new entries",
@@ -53,9 +53,10 @@
         "newPassword": "New password",
         "created": "Account created",
         "restored": "Password restored",
-        "accountPetitions": "Account petitions",
+        "addName": "Add Name",
         "loggedIn": "Logged in",
-        "notLoggedIn": "Not logged in"
+        "notLoggedIn": "Not logged in",
+        "petitionSet": "Your account creation petition was set. Admins will accept or reject it"
     },
     "editor": {
         "header": "Text editor",

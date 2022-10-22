@@ -29,6 +29,10 @@ export class AppCreateAccountComponent {
     this._service.createAccount(this.userMail, this.userName, this.password).then(_ => {
       this._notification.success("account.created");
       this.resetForm(true);
+    }).catch(e => {
+      if(e.error === "confirmation required") {
+        this._notification.success("account.petitionSet");
+      }
     });
   }
 

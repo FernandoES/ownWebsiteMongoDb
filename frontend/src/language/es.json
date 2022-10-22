@@ -36,8 +36,8 @@
         "explanation": "Siéntase libre de mostar su opinión",
         "sent": "Sugerencias enviadas"
     },
-    "petitions": {
-        "title": "Peiticiones de cuenta"
+    "addName": {
+        "title": "Añadir/Editar nombre"
     },
     "account": {
         "loginHeader": "Entre para editar y crear nuevas entradas del blog",
@@ -52,9 +52,10 @@
         "newPassword": "Contraseña nueva",
         "created": "Cuenta creada",
         "restored": "Contraseña restaurada",
-        "accountPetitions": "Peticiones de cuenta",
+        "addName": "Añadir nombre",
         "loggedIn": "Ha accedido a su cuenta",
-        "notLoggedIn": "No ha accedido a su cuenta"
+        "notLoggedIn": "No ha accedido a su cuenta",
+        "petitionSet": "Se ha guardado su solicitud de creación de cuenta, será aprobada o rechazada por los administradores"
     },
     "editor": {
         "header": "Editor de texto",

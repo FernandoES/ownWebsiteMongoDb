@@ -8,7 +8,7 @@ enum LoginOption {
   }
 enum LogoutOption {
   LOGOUT,
-  PETITIONS
+  ADDNAME
 }
 @Component({
     selector: 'app-account',
@@ -23,6 +23,9 @@ enum LogoutOption {
 })
 
 export class AppAccountComponent {
+  get emptyUserName() {
+    return this.service.userName === "";
+  }
     selectedLoginOption: LoginOption = LoginOption.LOGIN;
     selectedLogoutOption: LogoutOption = LogoutOption.LOGOUT;
     LoginOption = LoginOption;
@@ -46,7 +49,7 @@ export class AppAccountComponent {
       this.selectedLogoutOption = LogoutOption.LOGOUT;
     }
 
-    goToAccountpetitions() {
-      this.selectedLogoutOption = LogoutOption.PETITIONS;
+    goToAddName() {
+      this.selectedLogoutOption = LogoutOption.ADDNAME;
     }
 }
