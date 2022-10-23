@@ -22,7 +22,6 @@ export class AppCreateBlogComponent {
   existingArticleInformation$: Observable<IBlogEntry | null>;
   blog: IBlogEntry;
   fileReader: FileReader;
-  image: File;
   imagePreview: string;
   entryId: string;
   constructor(
@@ -34,7 +33,7 @@ export class AppCreateBlogComponent {
     this.assignExistingInformation();
     this.fileReader = new FileReader();
     this.fileReader.onload = e =>{ 
-      this.imagePreview = e.target?.result as string;
+      this.blog.image = e.target?.result as string;
       this._ref.markForCheck();
     };
    }
@@ -50,35 +49,34 @@ export class AppCreateBlogComponent {
       ...this.blog,
       title: "",
       body: "",
+      image: ""
     }
   }
 
   setFile(event: Event) {
     const target = event.target as HTMLInputElement;
     if (target.files && target.files.length > 0){
-      this.image = target.files[0];
-      this.fileReader.readAsDataURL(this.image);
+      this.fileReader.readAsDataURL(target.files[0]);
     }
   }
 
   saveBlog() {
     if (this.entryId) {
-      this._service.editBlog(this.blog, this.entryId, this.image).subscribe({
-        next: (response: any) => this._notification.success(response.status),
-        error: (response: any) => this._notification.error(response.error.message)
-      });
+      this._service.editBlog(this.blog, this.entryId)
+      .then((response: any) => this._notification.success(response.status))
+      .catch((response: any) => this._notification.error(response.error.message));
     }
     else {
-      this._service.saveBlog(this.blog, this.image).subscribe({
-        next: () => this._notification.success("editor.saved"),
-        error: (response: any) => this._notification.error(response.error.message)
-      });
+      this._service.saveBlog(this.blog)
+      .then(() => this._notification.success("editor.saved"))
+      .catch((response: any) => this._notification.error(response.error.message));
     }
   }
+
   assignExistingInformation() {
     this.entryId = this._route.snapshot.paramMap.get('id') as string;
     if (this.entryId) {
-      this._service.fetchSigleArticle(this.entryId).subscribe(article => {
+      this._service.fetchSigleArticle(this.entryId).then(article => {
         this.blog = article;
         this._ref.markForCheck()});
     }

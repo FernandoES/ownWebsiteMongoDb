@@ -1,6 +1,6 @@
 <h1 class="text-center bold">{{ header | ownLanguage }}</h1>
 <div class="container" fxLayout="row wrap">
-    <button fxFlex="25%" *ngFor="let item of streamToBeListed$ | async" type="button" (click)="buttonClick.next(item)">
+    <button fxFlex="25%" *ngFor="let item of cardsToShow$ | async" type="button" (click)="buttonClick.next(item)">
         <mat-card>
             <mat-card-title>
                 <h5 class="ellipse">{{item.title}}</h5>

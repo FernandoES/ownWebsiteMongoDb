@@ -25,10 +25,11 @@ export class AppSuggestionComponent{
       return;
     }
     const suggestion = this.suggestionForm.value;
-    this._service.sendSuggestions(suggestion).subscribe({next: _ => {
+    this._service.sendSuggestions(suggestion)
+    .then(_ => {
     this._notification.success("suggestions.sent");
       this.resetForm(true);
-    }});
+    });
   }
 
   resetForm(avoidInform?: boolean){

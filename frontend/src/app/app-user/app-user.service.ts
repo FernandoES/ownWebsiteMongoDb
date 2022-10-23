@@ -1,8 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { map, Observable } from 'rxjs';
-import { apiPathStart } from 'src/utils/constants';
+import { DatabaseHandlerService } from 'src/utils/database-handler.service';
 
 export interface IBlogEntry {
     title: string;
@@ -11,23 +8,13 @@ export interface IBlogEntry {
     date?: string;
     authorName: string;
     authorMail: string;
-    imageName?: string;
-    imagePath?: SafeResourceUrl;
+    image?: string;
 }
 
 @Injectable()
 export class UserService {
-    constructor(private _http : HttpClient, private sanitizer: DomSanitizer) { }
-    apiBaseUrl = `/${apiPathStart}/articles`;
-    fetchArticlesList(): Observable<IBlogEntry[]> {
-        return this._http.get<IBlogEntry[]>(`${this.apiBaseUrl}/articlesList`);
-    }
-    
-    fetchImage(imageName: string) {
-        return this._http.get(`${this.apiBaseUrl}/image/${imageName}`, { responseType: 'blob' }).pipe(
-            map(x => {
-              const urlToBlob = window.URL.createObjectURL(x)
-              return this.sanitizer.bypassSecurityTrustResourceUrl(urlToBlob); 
-            }))
+    constructor(private _databaseHandlerService: DatabaseHandlerService) { }
+    fetchArticlesList(): Promise<IBlogEntry[]> {
+       return this._databaseHandlerService.functions.fetchArticles();
     }
 }

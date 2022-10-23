@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { AppSuggestionsListService } from './app-suggestions-list.service';
-import { map } from 'rxjs';
 import { IBlogEntry } from 'src/app/app-user/app-user.service';
 import { compareArticlesByDate } from 'src/utils/functions/compareArticlesByDate';
 
@@ -16,12 +15,11 @@ import { compareArticlesByDate } from 'src/utils/functions/compareArticlesByDate
 })
 export class AppSuggestionsListComponent {
 
-  suggestionsList$ = this._service.fetchSuggestionsList().pipe(
-    map(suggestions => suggestions.sort(compareArticlesByDate)
-      .map(suggestion => ({...suggestion, title: suggestion.authorName, Mail: suggestion.authorMail}) as IBlogEntry)),
-  );
-  constructor(private _service: AppSuggestionsListService) {
-  }
+  suggestionsList$ = this._service.fetchSuggestionsList()
+  .then(suggestions => suggestions.sort(compareArticlesByDate)
+      .map(suggestion => ({...suggestion, title: suggestion.authorName, Mail: suggestion.authorMail}) as IBlogEntry));
+
+  constructor(private _service: AppSuggestionsListService) { }
 
   goToSuggestion(suggestion: IBlogEntry){
     this._service.selectedSuggestion.next(suggestion);

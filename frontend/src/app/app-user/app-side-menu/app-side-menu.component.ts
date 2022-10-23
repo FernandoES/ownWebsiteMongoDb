@@ -24,7 +24,7 @@ export class AppSideMenuComponent {
     private _userService: UserService,
     private _router: Router
     ) {
-      this._userService.fetchArticlesList().subscribe(articles => this.articles = articles);
+      this._userService.fetchArticlesList().then(articles => this.articles = articles);
      }
 
   goToLatestArticle($event: Event) {

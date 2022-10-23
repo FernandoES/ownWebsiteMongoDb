@@ -5,7 +5,7 @@
             <mat-icon class="clickable-text" *ngIf="showDeleteButton" (click)="deleteClick.next(entry)">delete</mat-icon>
             <mat-icon class="clickable-text" *ngIf="showEditButton" (click)="editClick.next(entry)">edit</mat-icon>
         </div>
-        <img *ngIf="entry.imagePath" class="image" alt="img" [src]="entry.imagePath" width="500">
+        <img *ngIf="entry.image" class="image" alt="img" [src]="entry.image" width="500">
             <div [fxLayout]="'row'" name="author">
                 <p class="author">{{ 'common.by' | ownLanguage }} {{ entry.authorName }}</p>
                 <p class="date">&nbsp;{{ 'common.at' | ownLanguage }} {{ entry.date | date }}</p>

@@ -23,12 +23,10 @@ export class AppSingleSuggestion implements OnInit {
     }
 
     deleteSuggestion(suggestion: IBlogEntry) {
-        return this.service.deleteSuggestion(suggestion._id ?? '').subscribe({
-            next: () => {
-                this._notificationService.success('suggestions.deleted');
-                this.service.selectSuggestion(null);
-            },
-            error: e => this._notificationService.error(e)
-        });
+        return this.service.deleteSuggestion(suggestion._id ?? '')
+        .then(() => {
+            this._notificationService.success('suggestions.deleted');
+            this.service.selectSuggestion(null);
+        }).catch(e => this._notificationService.error(e));
     }
 }

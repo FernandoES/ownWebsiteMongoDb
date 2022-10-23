@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { apiPathStart } from 'src/utils/constants';
+import { DatabaseHandlerService } from 'src/utils/database-handler.service';
 
 export interface ISuggestion {
     authorName: string,
@@ -12,11 +11,10 @@ export interface ISuggestion {
 
 @Injectable()
 export class AppSuggestionsService {
-    apiBaseroute = `/${apiPathStart}/suggestions`;
-    constructor(private _http : HttpClient) { }
+    constructor(private _databaseHandlerService: DatabaseHandlerService) { }
 
-    sendSuggestions(suggestion: ISuggestion) {
-        return this._http.post(`${this.apiBaseroute}/suggestion`, suggestion);
+    sendSuggestions(suggestion: ISuggestion): Promise<any> {
+        return this._databaseHandlerService.functions.postSuggestion(suggestion);
     }
     
 }

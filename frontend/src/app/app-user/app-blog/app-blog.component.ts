@@ -1,10 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { forkJoin, map, Observable, of, switchMap } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IBlogEntry, UserService } from '../app-user.service';
 import { compareArticlesByDate } from 'src/utils/functions/compareArticlesByDate';
-import { appId } from 'src/utils/constants';
-import * as Realm from "realm-web";
 
 @Component({
   selector: 'app-blog',
@@ -17,19 +14,8 @@ import * as Realm from "realm-web";
   }
 })
 export class AppBlogComponent implements OnInit {
-  articles: IBlogEntry[] = [];
-  app: Realm.App;
-
-  public blogList$: Observable<IBlogEntry[]> = this._userService.fetchArticlesList().pipe(switchMap(articles => 
-    forkJoin((articles ?? []).sort(compareArticlesByDate).map(article => {
-      this.articles.push(article);
-      if(article.imageName) {
-        return this._userService.fetchImage(article.imageName).pipe(map(imagePath => ({...article, imagePath: imagePath})));
-      }
-      else {
-        return of(article);
-      }
-    }))));
+  public blogList$: Promise<IBlogEntry[]> = this._userService.fetchArticlesList()
+  .then(articles => (articles ?? []).sort(compareArticlesByDate));
 
   constructor(
     private _userService: UserService, 
@@ -38,7 +24,6 @@ export class AppBlogComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.app = new Realm.App({id: appId});
 }
 
   goToArticle(item: IBlogEntry) {

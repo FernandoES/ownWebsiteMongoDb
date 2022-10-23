@@ -39,7 +39,7 @@ export class AppAccountService {
         .then(_ => this.addData(userName));
     }
 
-    addData(userName: string) {
+    addData(userName: string): Promise<any> {
         return this._databaseHandlerService.functions.addData(this.id, userName, this._databaseHandlerService.userMail);
     }
 
