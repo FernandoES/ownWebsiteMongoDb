@@ -1,20 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { apiPathStart } from 'src/utils/constants';
 import { DatabaseHandlerService } from 'src/utils/database-handler.service';
 
-export interface Logged {
-    logged: true;
-    userMail?: string;
-    userName?: string;
-}
-
-export interface Petition {
-    userName: string;
-    userMail: string;
-    _id: number;
-}
 @Injectable()
 export class AppAccountService {
     get logged() {
@@ -23,20 +10,12 @@ export class AppAccountService {
     get loggedWithoutName() {
         return this._databaseHandlerService.user?.providerType === "local-userpass" && this._databaseHandlerService.userName === "";
     }
-    get accessToken() {
-        return this._databaseHandlerService.user?.accessToken ?? '';
-    }
-    get refreshToken() {
-        return this._databaseHandlerService.user?.refreshToken ?? '';
-    }
     get id() {
         return this._databaseHandlerService.user?.id ?? '';
     }
     loggedIn$ = new Subject<boolean>();
     password: string;
-    apiBaseUrl = `/${apiPathStart}/login`;
     constructor(
-        private _http : HttpClient,
         private _databaseHandlerService: DatabaseHandlerService
     ) { }
 
@@ -71,17 +50,5 @@ export class AppAccountService {
             this.password = "";
             this.loggedIn$.next(false);
         });
-    }
-
-    fetchAccountPetitions() {
-        return this._http.get<{accountPetitions: Petition[]}>(`${this.apiBaseUrl}/accountPetitions`);
-    }
-
-    acceptPetition(petitionId: number) {
-        return this._http.post<{status: string}>(`${this.apiBaseUrl}/accountPetitions/accept`, {petitionId});
-    }
-
-    rejectPetition(petitionId: number) {
-        return this._http.post<{status: string}>(`${this.apiBaseUrl}/accountPetitions/reject`,  {petitionId});
     }
 }

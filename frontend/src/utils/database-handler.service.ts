@@ -13,9 +13,15 @@ export class DatabaseHandlerService {
     get userMail() {
         return this.app?.currentUser?.profile.email ?? "";
     }
+    get accessToken() {
+        return this.user?.accessToken ?? '';
+    }
+    get refreshToken() {
+        return this.user?.refreshToken ?? '';
+    }
     app: Realm.App;
     user: Realm.User | any;
-    constructor() { }
+    constructor() {}
 
     initDatabaseApp() {
         this.app = new Realm.App({id: appId});

@@ -19,11 +19,11 @@ export class HttpOwnInterceptor implements HttpInterceptor {
                     'password': this._appAccountService.password
                 }
             });
-        } else if ( this._appAccountService.accessToken.length) {
+        } else if ( this._databaseHandlerService.accessToken.length) {
             req = req.clone({
                 setHeaders: {
-                    'accessToken': this._appAccountService.accessToken,
-                    'refreshToken': this._appAccountService.refreshToken
+                    'accessToken': this._databaseHandlerService.accessToken,
+                    'refreshToken': this._databaseHandlerService.refreshToken
                 }
             });
         }

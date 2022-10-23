@@ -19,9 +19,7 @@ enum LogoutOption {
     host: {
       class: 'app-account'
     }
-
 })
-
 export class AppAccountComponent {
     selectedLoginOption: LoginOption = LoginOption.LOGIN;
     selectedLogoutOption: LogoutOption = LogoutOption.LOGOUT;
