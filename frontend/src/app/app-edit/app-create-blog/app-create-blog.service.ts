@@ -3,19 +3,19 @@ import { Injectable } from '@angular/core';
 import { Observable, switchMap } from 'rxjs';
 import { IBlogEntry } from 'src/app/app-user/app-user.service';
 import { apiPathStart } from 'src/utils/constants';
-import { AppAccountService } from '../../app-account/app-account.service';
+import { DatabaseHandlerService } from 'src/utils/database-handler.service';
 
 @Injectable()
 export class AppCreateBlogService {
-    constructor(private _accountService: AppAccountService, private _http: HttpClient) { }
+    constructor(private _databaseHandlerService: DatabaseHandlerService, private _http: HttpClient) { }
     apiBaseUrl = `/${apiPathStart}/articles`;
 
     saveBlog(blog: IBlogEntry, image?: File){
         if (image) {
             return this.uploadImage(image)
-            .pipe(switchMap(response => this.saveArticle({...blog, authorName: this._accountService.userName, authorMail: this._accountService.userMail, imageName: response.imageName})));
+            .pipe(switchMap(response => this.saveArticle({...blog, authorName: this._databaseHandlerService.userName, authorMail: this._databaseHandlerService.userMail, imageName: response.imageName})));
         }
-        return this.saveArticle({...blog, authorName: this._accountService.userName, authorMail: this._accountService.userMail})
+        return this.saveArticle({...blog, authorName: this._databaseHandlerService.userName, authorMail: this._databaseHandlerService.userMail})
     }
     
     editBlog(blog: IBlogEntry, entryId: string, image?: File) {

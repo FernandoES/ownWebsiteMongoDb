@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-import { Subscription, switchMap } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { LanguageService } from 'src/language/language.service';
-import { AppAccountService } from './app-account/app-account.service';
+import { DatabaseHandlerService } from 'src/utils/database-handler.service';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +15,9 @@ import { AppAccountService } from './app-account/app-account.service';
 })
 export class AppComponent {
   subscriptions: Subscription[];
-  constructor(language: LanguageService, accountService: AppAccountService) {
+  constructor(language: LanguageService, databaseHandlerService: DatabaseHandlerService) {
     language.init();
-    accountService.loginAnonymously()
+    databaseHandlerService.initDatabaseApp();
+    databaseHandlerService.logIn();
   }
 }

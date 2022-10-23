@@ -2,18 +2,20 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/c
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { AppAccountService } from "src/app/app-account/app-account.service";
+import { DatabaseHandlerService } from "../database-handler.service";
 
 @Injectable()
 export class HttpOwnInterceptor implements HttpInterceptor {
     constructor(
-       private _appAccountService: AppAccountService 
+       private _appAccountService: AppAccountService,
+       private _databaseHandlerService: DatabaseHandlerService
     ) {}
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         if ( this._appAccountService.password ) {
             req = req.clone({
                 setHeaders: {
-                    'email': this._appAccountService.userMail,
+                    'email': this._databaseHandlerService.userMail,
                     'password': this._appAccountService.password
                 }
             });

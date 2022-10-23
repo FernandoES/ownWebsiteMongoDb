@@ -23,9 +23,6 @@ enum LogoutOption {
 })
 
 export class AppAccountComponent {
-  get emptyUserName() {
-    return this.service.userName === "";
-  }
     selectedLoginOption: LoginOption = LoginOption.LOGIN;
     selectedLogoutOption: LogoutOption = LogoutOption.LOGOUT;
     LoginOption = LoginOption;

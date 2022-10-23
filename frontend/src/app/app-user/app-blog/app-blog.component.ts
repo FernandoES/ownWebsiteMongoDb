@@ -3,6 +3,8 @@ import { forkJoin, map, Observable, of, switchMap } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IBlogEntry, UserService } from '../app-user.service';
 import { compareArticlesByDate } from 'src/utils/functions/compareArticlesByDate';
+import { appId } from 'src/utils/constants';
+import * as Realm from "realm-web";
 
 @Component({
   selector: 'app-blog',
@@ -16,6 +18,7 @@ import { compareArticlesByDate } from 'src/utils/functions/compareArticlesByDate
 })
 export class AppBlogComponent implements OnInit {
   articles: IBlogEntry[] = [];
+  app: Realm.App;
 
   public blogList$: Observable<IBlogEntry[]> = this._userService.fetchArticlesList().pipe(switchMap(articles => 
     forkJoin((articles ?? []).sort(compareArticlesByDate).map(article => {
@@ -34,7 +37,9 @@ export class AppBlogComponent implements OnInit {
     private route: ActivatedRoute
     ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.app = new Realm.App({id: appId});
+}
 
   goToArticle(item: IBlogEntry) {
     this._router.navigate([this.getArticleLink(item)], { relativeTo: this.route})
