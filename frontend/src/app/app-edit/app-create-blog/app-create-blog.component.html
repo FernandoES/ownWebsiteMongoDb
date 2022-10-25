@@ -2,7 +2,7 @@
   <h1>{{ "editor.header" | ownLanguage }}</h1>
   <h2>{{ (entryId ? "editor.editExplanation" : "editor.createExplanation") | ownLanguage }}</h2>
   <div class="imageContainer" [fxLayout]="'column'">
-    <img *ngIf="imagePreview" class="image" alt="img" [src]="imagePreview" width="333">
+    <img *ngIf="blog.image" class="image" alt="img" [src]="blog.image" width="333">
     <button class="btn waves-effect waves-light imageButton blue" type="button" (click)="imageInput.click()">{{ (entryId ? "editor.substituteImage" : "editor.selectImage") | ownLanguage }}</button>
     <input hidden #imageInput type="file" (change)="setFile($event)">
   </div>

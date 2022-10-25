@@ -22,7 +22,6 @@ export class AppCreateBlogComponent {
   existingArticleInformation$: Observable<IBlogEntry | null>;
   blog: IBlogEntry;
   fileReader: FileReader;
-  imagePreview: string;
   entryId: string;
   constructor(
     private _service: AppCreateBlogService, 
