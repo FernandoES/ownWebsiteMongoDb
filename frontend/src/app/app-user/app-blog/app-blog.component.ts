@@ -15,7 +15,7 @@ import { compareArticlesByDate } from 'src/utils/functions/compareArticlesByDate
 })
 export class AppBlogComponent implements OnInit {
   public blogList$: Promise<IBlogEntry[]> = this._userService.fetchArticlesList()
-  .then(articles => (articles ?? []).sort(compareArticlesByDate));
+  .then(articles => articles.length ? articles.sort(compareArticlesByDate) : []);
 
   constructor(
     private _userService: UserService, 

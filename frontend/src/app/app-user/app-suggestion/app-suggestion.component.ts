@@ -35,6 +35,7 @@ export class AppSuggestionComponent{
   resetForm(avoidInform?: boolean){
     this._resetSuggestion();
     this.suggestionForm.form.markAsPristine();
+    this.suggestionForm.form.clearValidators();
     this._ref.markForCheck();
     if(!avoidInform) { 
       this._notification.success("common.reset");
