@@ -17,7 +17,5 @@ export class AppComponent {
   subscriptions: Subscription[];
   constructor(language: LanguageService, databaseHandlerService: DatabaseHandlerService) {
     language.init();
-    databaseHandlerService.initDatabaseApp();
-    databaseHandlerService.logIn();
   }
 }

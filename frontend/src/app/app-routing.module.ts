@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UserResolver } from './user-resolver';
 
 const routes: Routes = [
+  {
+    path: '',
+    resolve: {
+      user: UserResolver
+    },
+    children: [
     {
       path: '',
       redirectTo: 'user',
@@ -18,7 +25,9 @@ const routes: Routes = [
     {
       path: 'login',
       loadChildren: () => import('./app-account/app-account.module').then(m => m.AppAccountModule)
-    },
+    }
+  ]
+  }
 ];
 
 @NgModule({

@@ -5,7 +5,7 @@ import { appId } from './constants';
 @Injectable({providedIn: 'root'})
 export class DatabaseHandlerService {
     get functions() {
-        return this.user.functions;
+        return this.user?.functions;
     }
     get userName() {
         return this.user?.customData.userName ?? "";
@@ -27,7 +27,7 @@ export class DatabaseHandlerService {
         this.app = new Realm.App({id: appId});
     }
 
-    logIn(mail?: string, password?: string) {
+    logIn(mail?: string, password?: string): Promise<Realm.User> {
         let credentials;
         if(mail && password ) {
             credentials = Realm.Credentials.emailPassword(mail,password);
