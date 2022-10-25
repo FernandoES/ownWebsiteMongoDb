@@ -17,7 +17,7 @@ export class AppCreateBlogService {
     }
         
     fetchSigleArticle(id: string): Promise<IBlogEntry> {
-        return this._databaseHandlerService.functions.editArticle(id);
+        return this._databaseHandlerService.functions.fetchSigleArticle(id);
     }
     
 }

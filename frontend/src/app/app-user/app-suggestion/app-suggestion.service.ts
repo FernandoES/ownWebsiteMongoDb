@@ -14,7 +14,7 @@ export class AppSuggestionsService {
     constructor(private _databaseHandlerService: DatabaseHandlerService) { }
 
     sendSuggestions(suggestion: ISuggestion): Promise<any> {
-        return this._databaseHandlerService.functions.postSuggestion(suggestion);
+        return this._databaseHandlerService.functions.saveSuggestion(suggestion);
     }
     
 }
