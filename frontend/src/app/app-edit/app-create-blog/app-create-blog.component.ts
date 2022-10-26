@@ -75,7 +75,7 @@ export class AppCreateBlogComponent {
   assignExistingInformation() {
     this.entryId = this._route.snapshot.paramMap.get('id') as string;
     if (this.entryId) {
-      this._service.fetchSigleArticle(this.entryId).then(article => {
+      this._service.fetchSingleArticle(this.entryId).then(article => {
         this.blog = article;
         this._ref.markForCheck()});
     }

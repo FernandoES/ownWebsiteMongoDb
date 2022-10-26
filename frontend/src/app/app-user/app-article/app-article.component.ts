@@ -17,7 +17,7 @@ export class AppArticleComponent {
   error$ = new Subject<string>();
 
   public article$: Observable<IBlogEntry> = this._route.params.pipe(
-    switchMap(params => from(this._service.fetchSigleArticle(params['id']))),
+    switchMap(params => from(this._service.fetchSingleArticle(params['id']))),
     tap(response => this.userMail = response.authorMail ?? ''),
     catchError(e => {
       this.error$.next(e.error.status);

@@ -7,12 +7,12 @@ import { IBlogEntry } from '../app-user.service';
 export class AppArticleService {
     constructor(private _databaseHandlerService: DatabaseHandlerService) { }
 
-    fetchSigleArticle(id: string): Promise<IBlogEntry> {
+    fetchSingleArticle(id: string): Promise<IBlogEntry> {
         return this._databaseHandlerService.functions.fetchArticle(id);
     }
 
     deleteArticle(id: string): Promise<any> {
-        return this._databaseHandlerService.functions.deleteArticle(id);
+        return this._databaseHandlerService.functions.deleteArticle(id.toString());
     }
     
 }

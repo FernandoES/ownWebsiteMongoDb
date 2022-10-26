@@ -16,8 +16,8 @@ export class AppCreateBlogService {
         return this._databaseHandlerService.functions.editArticle(blog, entryId);
     }
         
-    fetchSigleArticle(id: string): Promise<IBlogEntry> {
-        return this._databaseHandlerService.functions.fetchSigleArticle(id);
+    fetchSingleArticle(id: string): Promise<IBlogEntry> {
+        return this._databaseHandlerService.functions.fetchArticle(id);
     }
     
 }
