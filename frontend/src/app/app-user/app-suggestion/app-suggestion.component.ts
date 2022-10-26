@@ -42,6 +42,10 @@ export class AppSuggestionComponent{
     }
   }
 
+  suggestionEmpty() {
+    return Object.values(this.suggestion).every(s => !s);
+  }
+
   private _resetSuggestion() {
     this.suggestion = {
       authorName: "",

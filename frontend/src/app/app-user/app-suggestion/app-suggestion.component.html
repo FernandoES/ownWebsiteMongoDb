@@ -3,15 +3,15 @@
 <form #suggestionForm="ngForm" (ngSubmit)="sendSuggestion()">
     <div name="inputFields">
         <mat-form-field appearance="fill">
-            <input #userNameInput="ngModel" matInput="matInput" required [(ngModel)]="suggestion.authorName" name="authorName" placeholder="{{ 'common.name' | ownLanguage }}"/>
+            <input #userNameInput="ngModel" matInput="matInput" [required]="!suggestionEmpty()" [(ngModel)]="suggestion.authorName" name="authorName" placeholder="{{ 'common.name' | ownLanguage }}"/>
             <mat-error *ngIf="!suggestionForm.pristine && userNameInput.errors && userNameInput.errors['required']"><span>{{ "common.requiredField" | ownLanguage }}</span></mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
-            <input #emailInput="ngModel" matInput="matInput" required email [(ngModel)]="suggestion.authorMail" name="authorMail" placeholder="{{ 'common.eMail' | ownLanguage }}"/>
+            <input #emailInput="ngModel" matInput="matInput" [required]="!suggestionEmpty()" [email]="!suggestionEmpty()" [(ngModel)]="suggestion.authorMail" name="authorMail" placeholder="{{ 'common.eMail' | ownLanguage }}"/>
             <mat-error *ngIf="!suggestionForm.pristine && emailInput.errors && emailInput.errors['email']"><span>{{ "common.requiredEmail" | ownLanguage }}</span></mat-error>
             <mat-error *ngIf="!suggestionForm.pristine && emailInput.errors && emailInput.errors['required']"><span>{{ "common.requiredField" | ownLanguage }}</span></mat-error>
         </mat-form-field>
-        <textarea name="body" [(ngModel)]="suggestion.body" required #suggestionsInput="ngModel"></textarea>
+        <textarea name="body" [(ngModel)]="suggestion.body" [required]="!suggestionEmpty()" #suggestionsInput="ngModel"></textarea>
         <mat-error *ngIf="suggestionsInput.errors && suggestionsInput.errors['required']"><span>{{ "common.requiredField" | ownLanguage }}</span></mat-error>
         <div class="buttons" *ngIf="!suggestionForm.pristine">
           <button class="btn waves-effect waves-light blue" (click)="resetForm()" type="button">{{ "common.cancel" | ownLanguage }}</button>
