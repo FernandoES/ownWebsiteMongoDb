@@ -6,14 +6,13 @@ import { AppComponent } from './app.component';
 import { AppHeaderModule } from './app-user/app-header/app-header.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { NotificationService } from 'src/utils/notification.service';
 import { I18NextModule, I18NEXT_SERVICE, ITranslationService } from 'angular-i18next';
 import { LanguageModule } from 'src/language/language.module';
 import { AppAccountService } from './app-account/app-account.service';
 import { MarkdownModule } from 'ngx-markdown';
-import { HttpOwnInterceptor } from 'src/utils/httpInterceptor/httpOwnInterceptor.service';
 
 export function appInit(i18next: ITranslationService) {
   return () => i18next.init({
@@ -63,12 +62,7 @@ export const I18N_PROVIDERS = [
   ],
   providers: [
     NotificationService,
-    AppAccountService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpOwnInterceptor,
-      multi: true,
-    }
+    AppAccountService
    ],
   bootstrap: [AppComponent]
 })
