@@ -1,0 +1,26 @@
+{
+    "collection": "users",
+    "database": "FernandosThoughtsDB",
+    "roles": [
+        {
+            "name": "readAndWriteAll",
+            "apply_when": {
+                "%%user.provider_type": "local-userpass"
+            },
+            "read": true,
+            "write": true,
+            "insert": true,
+            "delete": true,
+            "search": true
+        },
+        {
+            "name": "readAll",
+            "apply_when": {},
+            "read": true,
+            "write": false,
+            "insert": false,
+            "delete": false,
+            "search": true
+        }
+    ]
+}
