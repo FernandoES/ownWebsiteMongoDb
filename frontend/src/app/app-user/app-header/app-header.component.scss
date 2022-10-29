@@ -30,6 +30,9 @@
             li a{
                 font-size: large;
                 @media (max-width: 450px) {
+                    font-size:medium;
+                }
+                @media (max-width: 320px) {
                     font-size: small;
                 }
             }
@@ -45,10 +48,10 @@
             text-align: center;
             @media (max-width: 450px) {
                 line-height: 1rem;
-                font-size: 8px;
+                font-size: 10px;
             }
             @media (max-width: 300px) {
-                font-size: 5px;
+                font-size: 8px;
             }
 
         }
