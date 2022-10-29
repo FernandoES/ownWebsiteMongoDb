@@ -7,8 +7,12 @@
         max-height: 100%;
         width: auto;
         padding-top:0.2rem;
+        max-height: 56px;
     }
     nav {
+        height: auto;
+        display: flex;
+        flex-direction: column;
         .brand-logo {
             position: relative;
         }
