@@ -1,22 +1,33 @@
-.app-suggestion form {
- div[name="inputFields"] {
+.app-suggestion {
     display: flex;
     flex-direction: column;
     align-items: center;
-    * {
-        width: 40rem;
-    }
-    input {
-        height: min-content;
-    }
-    textarea {
-        height: 10rem;
-    }
+     form {
+        max-width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        div[name="inputFields"] {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 40rem;
+            max-width: 100%;
+            * {
+                width: 100%;
+            }
+            input {
+                height: min-content;
+            }
+            textarea {
+                height: 10rem;
+            }
     .sendSuggestionButtons {
         width: 35rem;
         button {
             transition: box-shadow .3s;
         }
     }
+}
 }
 }
