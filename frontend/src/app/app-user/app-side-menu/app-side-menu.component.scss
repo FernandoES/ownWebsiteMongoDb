@@ -17,3 +17,15 @@
     }
   }
 }
+  .mat-menu {
+    @media (max-width: 450px) {
+      width: 140px;
+      font-size: smaller;
+      .mat-menu-item {
+        padding: 0px;
+      }
+      input {
+        width: 90%
+      }
+    }
+  }
