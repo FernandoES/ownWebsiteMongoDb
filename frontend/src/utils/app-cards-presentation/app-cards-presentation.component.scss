@@ -7,10 +7,10 @@
                 background:none; 
                 border:none;
             padding: 16px;
-            :hover{
+            &:hover{
                 opacity: 0.5;
             }
-            mat-card {
+            .mat-card {
                 height: 50vh;
                 display: flex;
                 flex-direction: column;
@@ -21,7 +21,7 @@
                     width: 100%;
                     height: 100px;
                 }
-                mat-card-content {
+                .mat-card-content {
                     overflow: hidden;
                     markdown {
                         overflow: hidden;
