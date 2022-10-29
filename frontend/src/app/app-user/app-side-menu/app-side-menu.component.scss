@@ -5,6 +5,11 @@
   > button {
     height: 50px;
     width: 50px;
+    padding: 0px;
+    @media (max-width: 450px) {
+      height: 25px;
+      width: 25px;
+    }
     em {
         position: relative;
         top: 15%;
