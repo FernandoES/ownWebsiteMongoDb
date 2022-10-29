@@ -1,4 +1,5 @@
 @import '../../utils/utils.scss';
 .app-edit {
     height: calc(100vh - $header-height);
+    position: relative;
 }
