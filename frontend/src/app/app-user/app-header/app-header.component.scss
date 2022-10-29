@@ -13,7 +13,7 @@
     }
     nav {
         @media (max-width: 450px) {
-            line-height: 26px;
+            line-height: 36px;
         }
         height: auto;
         display: flex;
@@ -24,6 +24,9 @@
         ul {
             position: relative;
             padding-left: 56px;
+            @media (max-width: 450px) {
+                padding-left: 26px;
+            }
             li a{
                 font-size: large;
                 @media (max-width: 450px) {
@@ -32,30 +35,37 @@
             }
         }
         .loggedIn{
-            line-height: 2rem;
             color: green;
-            text-align: center;
-            @media (max-width: 450px) {
-                line-height: 1rem;
-                font-size: smaller;
-
-            }
         }
         .notLoggedIn {
-            line-height: 2rem;
             color: inherit;
+        }
+        .loggedText {
+            line-height: 2rem;
             text-align: center;
             @media (max-width: 450px) {
                 line-height: 1rem;
-                font-size: smaller;
+                font-size: 8px;
             }
+            @media (max-width: 300px) {
+                font-size: 5px;
+            }
+
         }
         button {
             @media (max-width: 450px) {
             padding: 0px;
             height: 30px;
-            width: 25px;
+            width: 20px;
+            margin: 0px
             }
+            @media (max-width: 300px) {
+                padding: 0px;
+                height: 25px;
+                width: 15px;
+                margin: 0px;
+                font-size: 10px;
+                }
             
         }
     }
