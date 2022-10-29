@@ -1,14 +1,9 @@
 .app-cards-presentation {
-    h1 {
-        
-        @media (max-width: 450px) {
-            font-size: 2rem;
-        }
-    }
     .container {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: center;
         button { 
             background:none; 
             border:none;
