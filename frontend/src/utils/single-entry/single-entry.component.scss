@@ -8,11 +8,13 @@
     div[name="author"], div[name="editButtons"] {
         display: flex;
         justify-content: flex-end;
-        margin: 2rem;
+        margin-right: 10%;
     }
     img {
         margin: auto;
-        width: 100%;
+        @media (max-width: 450px) {
+            width: 100%;
+        }
     }
     markdown {
         margin-left: 10%;
