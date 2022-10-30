@@ -10,7 +10,7 @@
             <div fxLayout="row" fxLayoutGap="10px">
                 <button *ngFor="let language of language.availableLanguages" type="button" class="btn waves-effect waves-light blue" (click)="changeLanguage(language)">{{ language }}</button>
             </div>
-            <a [class]="'loggedText ' + (accountService.logged || accountService.loggedWithoutName ? 'loggedIn' : 'notLoggedIn')" [routerLink]="'login'">{{ (accountService.logged || accountService.loggedWithoutName ? 'common.loggedIn' : 'account.login') | ownLanguage }}</a>
+            <a [class]="'loggedText ' + (accountService.logged || accountService.loggedWithoutName ? 'loggedIn' : 'notLoggedIn')" [routerLink]="'login'">{{ (accountService.logged || accountService.loggedWithoutName ? 'account.logout' : 'account.login') | ownLanguage }}</a>
         </div>
     </div>
 </nav>

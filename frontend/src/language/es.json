@@ -14,8 +14,6 @@
         "reset": "Valores restaurados",
         "password": "Contraseña",
         "loading": "Cargando",
-        "loggedIn": "Registrado",
-        "notLoggedIn": "No registrado",
         "delete": "Borrar",
         "accept": "Aceptar",
         "reject": "Rechazar"
@@ -46,7 +44,7 @@
         "restore": "Restaurar",
         "create": "Crear",
         "login": "Entrar",
-        "logout": "Salir del sistema",
+        "logout": "Salir",
         "loggedOut": "Ha salido del sistema",
         "oldPassword": "Contraseña previa",
         "newPassword": "Contraseña nueva",
