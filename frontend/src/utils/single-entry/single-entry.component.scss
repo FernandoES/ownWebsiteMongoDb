@@ -1,4 +1,7 @@
 .single-entry {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     h1 {
         margin: auto;
     }
@@ -9,11 +12,13 @@
     }
     img {
         margin: auto;
+        width: 100%;
     }
     markdown {
         margin-left: 10%;
         margin-right: 10%;
         margin-bottom: 5%;
         text-align: justify;
+        max-width: 100%;
     }
 }

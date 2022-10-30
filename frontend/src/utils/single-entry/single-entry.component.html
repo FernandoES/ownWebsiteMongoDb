@@ -1,17 +1,18 @@
 <ng-container *ngIf=" entry$ | async as entry; else loadingOrError" >
-    <div fxLayout="column">
-        <h1>{{ entry.title }}</h1>
-        <div name="editButtons" fxLayout="row">
-            <mat-icon class="clickable-text" *ngIf="showDeleteButton" (click)="deleteClick.next(entry)">delete</mat-icon>
-            <mat-icon class="clickable-text" *ngIf="showEditButton" (click)="editClick.next(entry)">edit</mat-icon>
-        </div>
-        <img *ngIf="entry.image" class="image" alt="img" [src]="entry.image" width="500">
-            <div [fxLayout]="'row'" name="author">
-                <p class="author">{{ 'common.by' | ownLanguage }} {{ entry.authorName }}</p>
-                <p class="date">&nbsp;{{ 'common.at' | ownLanguage }} {{ entry.date | date }}</p>
-            </div>
-            <markdown [data]="entry.body"></markdown>
+    <h1>{{ entry.title }}</h1>
+    <div name="editButtons" fxLayout="row">
+        <mat-icon class="clickable-text" *ngIf="showDeleteButton" (click)="deleteClick.next(entry)">delete</mat-icon>
+        <mat-icon class="clickable-text" *ngIf="showEditButton" (click)="editClick.next(entry)">edit</mat-icon>
     </div>
+    <img *ngIf="entry.image" class="image" alt="img" [src]="entry.image">
+        <div [fxLayout]="'row'" name="author">
+            <p class="author">{{ 'common.by' | ownLanguage }} {{ entry.authorName }}</p>
+            <p class="date">&nbsp;{{ 'common.at' | ownLanguage }} {{ entry.date | date }}</p>
+        </div>
+        <markdown
+            lineNumbers
+            [data]="entry.body"
+            ></markdown>
 </ng-container>
 <ng-template #loadingOrError>
     <div *ngIf="error$ | async as error; else loading">
