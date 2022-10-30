@@ -15,7 +15,6 @@
         "password": "Password",
         "loading": "Loading",
         "loggedIn": "Logged in",
-        "notLoggedIn": "Not logged in",
         "delete": "Delete",
         "accept": "Accept",
         "reject": "Reject"

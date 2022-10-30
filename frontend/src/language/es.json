@@ -54,7 +54,6 @@
         "restored": "Contraseña restaurada",
         "addName": "Añadir nombre",
         "loggedIn": "Ha accedido a su cuenta",
-        "notLoggedIn": "No ha accedido a su cuenta",
         "petitionSet": "Se ha guardado su solicitud de creación de cuenta, será aprobada o rechazada por los administradores"
     },
     "editor": {
