@@ -1,0 +1,22 @@
+{
+    "properties": {
+        "_id": {
+            "bsonType": "objectId"
+        },
+        "userMail": {
+            "bsonType": "string"
+        },
+        "userName": {
+            "bsonType": "string"
+        },
+        "user_id": {
+            "bsonType": "string"
+        }
+    },
+    "required": [
+        "user_id",
+        "userName",
+        "userMail"
+    ],
+    "title": "user"
+}

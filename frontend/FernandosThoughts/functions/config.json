@@ -1,0 +1,64 @@
+[
+    {
+        "name": "fetchArticles",
+        "private": false,
+        "run_as_system": true,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "resetFunction",
+        "private": false
+    },
+    {
+        "name": "createAccount",
+        "private": false,
+        "run_as_system": true,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "addData",
+        "private": false,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "fetchSuggestions",
+        "private": false,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "cutTextAvoidingMarkdown",
+        "private": false,
+        "run_as_system": true,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "fetchArticle",
+        "private": false,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "saveArticle",
+        "private": false,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "editArticle",
+        "private": false,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "deleteSuggestion",
+        "private": false,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "deleteArticle",
+        "private": false,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "saveSuggestion",
+        "private": false,
+        "disable_arg_logs": true
+    }
+]
