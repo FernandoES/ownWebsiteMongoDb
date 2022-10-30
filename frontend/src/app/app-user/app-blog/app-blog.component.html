@@ -1,6 +1,6 @@
 <app-cards-presentation [cardsToShow$]="blogList$" header="blogList.available" (buttonClick)="goToArticle($event)">
     <ng-template class="picture-container" #middleCard="" let-item="">
-        <img *ngIf="item.image" class="image" alt="img" [src]="item.image" width="100%" height="100px">
+        <img *ngIf="item.smallImage" class="image" alt="img" [src]="item.smallImage" width="100%" height="100px">
     </ng-template>
     <ng-template #cardContent="" let-item="">
         <markdown [data]="item.body" select="cardContent"></markdown>

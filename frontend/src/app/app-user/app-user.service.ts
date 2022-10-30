@@ -9,6 +9,7 @@ export interface IBlogEntry {
     authorName: string;
     authorMail: string;
     image?: string;
+    smallImage?: string;
 }
 
 @Injectable()
