@@ -14,7 +14,7 @@ import { AppSuggestionsService } from './app-suggestion.service';
 import { NotificationService } from 'src/utils/notification.service';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppSuggestionHarness } from './app-suggestion.harness';
-import { FakeSuggestionsService, TestLanguagePipe, TestNotificationService } from 'src/test/take-service-providers';
+import { FakeSuggestionsService, TestLanguagePipe, TestNotificationService } from 'src/test/fake-service-providers';
 
 
 describe('AppSuggestionComponent: ', () => {
