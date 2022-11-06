@@ -63,7 +63,7 @@ export const fakeBlogEntry: IBlogEntry = {
     smallImage: 'smallImage'
 }
 
-export const streamToBeListed$: Observable<any> = of( [{
+export const streamToBeListed$: Promise<any> = Promise.resolve( [{
     title: "firstTestTitle",
 },
 {
