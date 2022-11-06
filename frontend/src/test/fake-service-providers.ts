@@ -71,7 +71,7 @@ export const streamToBeListed$: Observable<any> = of( [{
 
 export class FakeUserService {
     fetchArticlesList() {
-        return of([fakeBlogEntry]);
+        return new Promise(resolve => resolve([fakeBlogEntry]));
     }
 }
 
