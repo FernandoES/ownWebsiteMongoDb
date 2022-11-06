@@ -59,7 +59,8 @@ export const fakeBlogEntry: IBlogEntry = {
     body: "bodyTest",
     _id: "_idTest",
     authorName: "authorNameTest",
-    authorMail: "authorMailTest"
+    authorMail: "authorMailTest",
+    smallImage: 'smallImage'
 }
 
 export const streamToBeListed$: Observable<any> = of( [{
@@ -71,7 +72,7 @@ export const streamToBeListed$: Observable<any> = of( [{
 
 export class FakeUserService {
     fetchArticlesList() {
-        return new Promise(resolve => resolve([fakeBlogEntry]));
+        return  Promise.resolve([fakeBlogEntry]);
     }
 }
 
