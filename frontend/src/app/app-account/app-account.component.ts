@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewEncapsulation } from '@angular/core';
 import { AppAccountService } from './app-account.service';
 
-enum LoginOption {
+export enum LoginOption {
     LOGIN,
     RESTORE,
     CREATE
