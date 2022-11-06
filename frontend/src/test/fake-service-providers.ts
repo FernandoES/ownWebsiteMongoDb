@@ -9,7 +9,7 @@ export class TestAppAccountService {
     sendLogin(mail: string, password: string) {
         this.logged = true;
         this.loggedIn$.next(true);
-        return of(`${mail}${password}`);
+        return Promise.resolve(`${mail}${password}`);
     }
 }
 
