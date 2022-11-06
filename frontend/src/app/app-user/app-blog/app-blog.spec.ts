@@ -57,7 +57,6 @@ describe('AppBlogComponent: ', () => {
         
         it('should show markdown', () => {
             fixture.whenStable().then(() => {
-
                 const markdown = fixture.debugElement.queryAll(By.directive(MarkdownComponent));
                 expect(markdown.length).toBe(1);
             });
