@@ -1,9 +1,0 @@
-{
-    "app_id": "fernandosthoughts-dqghh",
-    "config_version": 20210101,
-    "name": "FernandosThoughts",
-    "location": "DE-FF",
-    "provider_region": "aws-eu-central-1",
-    "deployment_model": "LOCAL",
-    "environment": "development"
-}
