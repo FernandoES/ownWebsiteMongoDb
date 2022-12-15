@@ -4,6 +4,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MarkdownModule } from 'ngx-markdown';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { AppBlogRoutingModule } from 'src/app/app-user/app-blog/app-blog-routing.module';
 import { LanguageModule } from 'src/language/language.module';
 import { AppCardsPresentationComponent } from './app-cards-presentation/app-cards-presentation.component';
@@ -19,6 +20,7 @@ import { SingleEntryComponent } from './single-entry/single-entry.component';
         FlexLayoutModule,
         LanguageModule,
         MatIconModule,
+        NgxSkeletonLoaderModule
     ],
     exports: [AppCardsPresentationComponent, SingleEntryComponent],
     declarations: [AppCardsPresentationComponent, SingleEntryComponent],

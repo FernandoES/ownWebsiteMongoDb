@@ -28,6 +28,7 @@
     "i18next": "^21.8.14",
     "ngx-image-compress": "^13.1.13",
     "ngx-markdown": "^13.1.0",
+    "ngx-skeleton-loader": "^6.0.0",
     "ngx-toastr": "^11.3.3",
     "prismjs": "^1.27.0",
     "realm-web": "^1.7.1",

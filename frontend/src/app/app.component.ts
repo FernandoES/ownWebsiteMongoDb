@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { filter, map, Subscription } from 'rxjs';
 import { LanguageService } from 'src/language/language.service';
-import { DatabaseHandlerService } from 'src/utils/database-handler.service';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +14,13 @@ import { DatabaseHandlerService } from 'src/utils/database-handler.service';
   }
 })
 export class AppComponent {
+  loading = true;
   subscriptions: Subscription[];
-  constructor(language: LanguageService, databaseHandlerService: DatabaseHandlerService) {
+  constructor(language: LanguageService, private _router: Router) {
     language.init();
+    this._router.events.pipe(
+      filter(e => e instanceof NavigationStart || e instanceof NavigationEnd),
+      map(e => e instanceof NavigationStart)
+    ).subscribe(loading => this.loading = loading);
   }
 }

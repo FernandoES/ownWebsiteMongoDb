@@ -1,6 +1,6 @@
 <h1 class="text-center bold">{{ header | ownLanguage }}</h1>
-<div class="container" fxLayout="row wrap">
-    <button *ngFor="let item of cardsToShow$ | async" type="button" (click)="buttonClick.next(item)">
+<div *ngIf="cardsToShow$ | async as cardsToShow; else loader" class="container" fxLayout="row wrap">
+    <button *ngFor="let item of cardsToShow" type="button" (click)="buttonClick.next(item)">
         <mat-card>
             <mat-card-title>
                 <h5 class="ellipse">{{item.title}}</h5>
@@ -12,3 +12,6 @@
         </mat-card>
     </button>
 </div>
+<ng-template #loader>
+    <ngx-skeleton-loader #loader class="loader" count="4" appearance="circle" [theme]="{ height:'250px', width:'170px', 'border-radius':'0px'}"></ngx-skeleton-loader>
+</ng-template>

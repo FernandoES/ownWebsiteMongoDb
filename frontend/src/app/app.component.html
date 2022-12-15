@@ -1,2 +1,6 @@
 <app-header></app-header>
 <router-outlet></router-outlet>
+<ng-container *ngIf="loading" fxFlex="column">
+    <ngx-skeleton-loader class="loader" appearance="line" [theme]="{height: '50px', width: '60%'}"></ngx-skeleton-loader>
+    <ngx-skeleton-loader class="loader" count="4" appearance="circle" [theme]="{ height:'250px', width:'170px', 'border-radius':'0px'}"></ngx-skeleton-loader>
+</ng-container>

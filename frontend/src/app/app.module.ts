@@ -13,6 +13,7 @@ import { I18NextModule, I18NEXT_SERVICE, ITranslationService } from 'angular-i18
 import { LanguageModule } from 'src/language/language.module';
 import { AppAccountService } from './app-account/app-account.service';
 import { MarkdownModule } from 'ngx-markdown';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 export function appInit(i18next: ITranslationService) {
   return () => i18next.init({
@@ -58,7 +59,8 @@ export const I18N_PROVIDERS = [
     I18NextModule.forRoot(),
     MarkdownModule.forRoot(),
     HttpClientModule,
-    LanguageModule
+    LanguageModule,
+    NgxSkeletonLoaderModule
   ],
   providers: [
     NotificationService,
