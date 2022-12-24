@@ -20,6 +20,7 @@ import { AppSuggestionsListService } from './app-suggestions-list/app-suggestion
 import { OwnUtilsModule } from 'src/utils/own-utils.module';
 import { AppSingleSuggestion } from './app-single-suggestion/app-single-suggestion.component';
 import { MarkdownModule } from 'ngx-markdown';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { MarkdownModule } from 'ngx-markdown';
     MatCheckboxModule,
     LanguageModule,
     OwnUtilsModule,
+    NgxSkeletonLoaderModule,
     MarkdownModule.forChild()
   ],
   providers: [
